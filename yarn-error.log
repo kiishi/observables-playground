@@ -1,0 +1,36 @@
+Arguments: 
+  /Users/deolu/.nvm/versions/node/v10.17.0/bin/node /usr/local/Cellar/yarn/1.19.1/libexec/bin/yarn.js init 0y
+
+PATH: 
+  /Users/deolu/.rvm/gems/ruby-2.6.3/bin:/Users/deolu/.rvm/gems/ruby-2.6.3@global/bin:/Users/deolu/.rvm/rubies/ruby-2.6.3/bin:/Users/deolu/.nvm/versions/node/v10.17.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Users/deolu/.rvm/gems/ruby-2.6.3/bin:/Users/deolu/.rvm/gems/ruby-2.6.3@global/bin:/Users/deolu/.rvm/rubies/ruby-2.6.3/bin:/Users/deolu/.nvm/versions/node/v10.17.0/bin:/Users/deolu/Go/bin:/Users/deolu/.rvm/bin:/Users/deolu/Go/bin:/Users/deolu/.rvm/bin
+
+Yarn version: 
+  1.19.1
+
+Node version: 
+  10.17.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (/usr/local/Cellar/yarn/1.19.1/libexec/lib/cli.js:136824:13)
+      at Interface.emit (events.js:198:13)
+      at Interface._ttyWrite (readline.js:801:16)
+      at ReadStream.onkeypress (readline.js:184:10)
+      at ReadStream.emit (events.js:198:13)
+      at emitKeys (internal/readline.js:424:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1073:36)
+      at ReadStream.emit (events.js:198:13)
+      at addChunk (_stream_readable.js:287:12)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
