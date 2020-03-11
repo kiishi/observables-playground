@@ -1,7 +1,6 @@
 import { Subject, Observable } from "rxjs";
-import code from "conectar-ws-test";
 
-export class EventEmitter {
+class EventEmitter {
     private subjectStore: Map<string, Subject<any>> = new Map<
         string,
         Subject<any>
@@ -22,6 +21,9 @@ export class EventEmitter {
 
     //   this would be used for testing alone
     public getObservableForEvent(event_name: string) {
+        if(!this.subjectStore.has(event_name)){
+            throw new Error("event does not exist")
+        }
         return this.subjectStore.get(event_name);
     }
 
@@ -34,29 +36,34 @@ export class EventEmitter {
         }
         this.subjectStore.get(event_name)?.subscribe(reaction);
     }
-
-    //   private async subscribeToWebsocketEvent(event_name: string) {
-    //     return;
-    //   }
 }
 
-export const testFn = () => {
+export const testFn = () : boolean => {
     console.log("running from tests");
     return true;
 };
-// trying it out
-const main = async () => {
-    const event = new EventEmitter({});
-    await event.createWebsocketEventSubscription("deolu", message => {
-        console.log(message);
-    });
-    //   imagine this is our test subscriber
-    let newSubscriber = event.getObservableForEvent("deolu");
-    newSubscriber?.next({ message: true });
-    newSubscriber?.next({ message: false });
-    newSubscriber?.next({ message: false });
-};
 
-main();
+
+const eventEmitter = new EventEmitter({})
+// create a subscription
+eventEmitter.createWebsocketEventSubscription("private_message" , ()=>{
+    testFn()
+})
+export {eventEmitter}
+
+// uncomment to try out
+// const main = async () => {
+//     const event = new EventEmitter({});
+//     await event.createWebsocketEventSubscription("deolu", message => {
+//         console.log(message);
+//     });
+//     //   imagine this is our test subscriber
+//     let newSubscriber = event.getObservableForEvent("deolu");
+//     newSubscriber?.next({ message: true });
+//     newSubscriber?.next({ message: false });
+//     newSubscriber?.next({ message: false });
+// };
+
+// main();
 
 // code();
